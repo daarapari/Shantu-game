@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#79c8d3" />
+  <title>A Little World</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game">
+    <canvas id="gameCanvas"></canvas>
+
+    <section id="startScreen" class="screen">
+      <div class="card intro-card">
+        <div class="tiny">A LITTLE WORLD, MADE FOR YOU</div>
+        <h1>Happy Birthday, love!</h1>
+        <p>Run, fly, and collect little pieces of your world.</p>
+        <div class="howto"><strong>HOW TO PLAY</strong><div>Tap the screen to jump and fly up.</div><div>Stop tapping to come back down.</div><div>Dodge obstacles and collect the floating memory icons.</div><div>Meet cats and dogs to make little walking friends.</div><div>Every full memory meter clears your obstacle-hit marks.</div></div>
+        <button id="startButton">START FLYING</button>
+      </div>
+    </section>
+
+    <section id="pauseScreen" class="screen hidden">
+     <div class="card memory-card" id="animalEncounterCard">
+        <div id="pauseEmoji" class="memory-emoji">♥</div>
+        <div id="pauseTitle" class="tiny">MEMORY</div>
+        <h2 id="pauseMain">HI BITCH.</h2>
+        <p id="pauseSub">A tiny interruption from her very specific little world.</p>
+        <button id="resumeButton">KEEP FLYING</button>
+      </div>
+    </section>
+
+    <section id="gameOverScreen" class="screen hidden">
+      <div class="card gift-card">
+        <div class="tiny">A LITTLE WORLD, FULL OF YOU</div>
+        <h2>Happy Birthday, love!</h2>
+        <h2>You did great!! ♥</h2>
+        <p id="gameOverSub">Your little adventure stats will appear here.</p>
+        <button id="restartButton">FLY AGAIN</button>
+      </div>
+    </section>
+
+    <section id="giftScreen" class="screen hidden">
+      <div class="card gift-card">
+        <div class="gift-box">🎁</div>
+        <div class="tiny" id="giftTitle">BONUS PRESENT</div>
+        <h2 id="giftMain">YOU FILLED HER UP.</h2>
+        <p id="giftSub">Another little surprise has appeared.</p>
+        <button id="giftContinue">KEEP FLYING</button>
+      </div>
+    </section>
+  </main>
+
+<style>
+#mediaMemoryOverlay{position:fixed;inset:0;z-index:50;background:rgba(28,25,24,.78);display:none;align-items:center;justify-content:center;padding:16px}
+#mediaMemoryOverlay .mm-card{position:relative;width:min(420px,94vw);max-height:92vh;overflow:auto;background:#fff8ec;border:3px solid #3d302b;border-radius:20px;padding:18px 16px 16px;text-align:center;box-shadow:0 7px 0 #191514;color:#3d302b}
+#mediaMemoryOverlay .mm-close{position:absolute;right:9px;top:4px;background:none;border:0;font-size:28px;color:#3d302b}
+#mediaMemoryOverlay .mm-kicker{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#8c796b;margin:2px 0 5px}
+#mediaMemoryOverlay h2{font-size:21px;margin:0 24px 10px}
+#mediaMemoryOverlay .mm-stage{min-height:280px;display:flex;align-items:center;justify-content:center}
+#mediaMemoryOverlay .mm-polaroid{position:relative;width:min(300px,82vw);padding:9px 9px 37px;background:#fffdf5;box-shadow:0 4px 12px #44332a2b;transform:rotate(-1.4deg)}
+#mediaMemoryOverlay .mm-polaroid img,#mediaMemoryOverlay .mm-polaroid video{display:block;width:100%;height:280px;object-fit:contain;background:#eee6dc}
+#mediaMemoryOverlay .mm-caption{position:absolute;bottom:9px;left:5px;right:5px;font-family:"Comic Sans MS",cursive;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#mediaMemoryOverlay .mm-notification{width:100%;display:flex;gap:11px;align-items:center;text-align:left;background:#fff;border:1px solid #e7d8c8;border-radius:15px;padding:10px;box-shadow:0 4px 12px #44332a1c}
+#mediaMemoryOverlay .mm-notification img,#mediaMemoryOverlay .mm-notification video{width:112px;height:150px;object-fit:cover;border-radius:8px;background:#eee6dc}
+#mediaMemoryOverlay .mm-notification strong{display:block;font-size:16px;margin-bottom:5px}
+#mediaMemoryOverlay .mm-notification span{font-size:12px;color:#87756a}
+#mediaMemoryOverlay .mm-actions{display:flex;justify-content:center;gap:10px;margin-top:12px}
+#mediaMemoryOverlay .mm-actions button{border:2px solid #3d302b;border-radius:99px;padding:9px 17px;background:#e7c66e;color:#3d302b;font-weight:750}
+#mediaMemoryOverlay .mm-actions .mm-secondary{background:transparent}
+#mediaMemoryOverlay .mm-reward{display:none;font-weight:850;font-size:23px;color:#b54f46;margin-top:12px}
+@media(max-width:480px){#mediaMemoryOverlay .mm-stage{min-height:225px}#mediaMemoryOverlay .mm-polaroid img,#mediaMemoryOverlay .mm-polaroid video{height:225px}#mediaMemoryOverlay .mm-notification img,#mediaMemoryOverlay .mm-notification video{height:125px;width:94px}}
+</style>
+<div id="mediaMemoryOverlay" aria-modal="true" role="dialog">
+  <section class="mm-card">
+    <button class="mm-close" id="mmClose" aria-label="Close">×</button>
+    <div class="mm-kicker" id="mmKicker">A little memory</div>
+    <h2 id="mmHeading">Our Photos</h2>
+    <div class="mm-stage" id="mmStage"></div>
+    <div class="mm-reward" id="mmReward">+20 Memory</div>
+    <div class="mm-actions"><button class="mm-secondary" id="mmSkip">Skip</button><button id="mmNext">Next</button></div>
+  </section>
+</div>
+
+  <script src="game.js"></script>
+</body>
+</html>

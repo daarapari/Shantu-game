@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+<defs><filter id="g" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="7"/></filter></defs>
+<ellipse cx="80" cy="82" rx="54" ry="52" fill="#f5c66d" opacity=".22" filter="url(#g)"/>
+<g stroke="#44312b" stroke-width="4" stroke-linejoin="round">
+<rect x="40" y="19" width="81" height="122" rx="13" fill="#d7a6a0"/>
+<rect x="47" y="28" width="67" height="103" rx="8" fill="#3c3839" stroke-width="2"/>
+<rect x="53" y="45" width="55" height="69" rx="5" fill="#f7eee0" stroke-width="2"/>
+<circle cx="67" cy="58" r="6" fill="#e7a17e" stroke="none"/>
+<path d="M57 81 Q64 65 74 79 L74 87 H57Z" fill="#8d9e91" stroke="none"/>
+<rect x="79" y="54" width="22" height="4" rx="2" fill="#44312b" stroke="none"/>
+<rect x="79" y="62" width="18" height="3" rx="1.5" fill="#9c8c81" stroke="none"/>
+<rect x="79" y="69" width="20" height="3" rx="1.5" fill="#9c8c81" stroke="none"/>
+<rect x="58" y="93" width="45" height="14" rx="4" fill="#e6c46e" stroke="none"/>
+<path d="M80 96v8M76 100h8" stroke="#44312b" stroke-width="2"/>
+<circle cx="119" cy="33" r="17" fill="#d94f4b"/><text x="119" y="39" font-family="Arial,sans-serif" font-size="18" font-weight="700" text-anchor="middle" fill="#fff" stroke="none">1</text>
+</g></svg>

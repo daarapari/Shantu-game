@@ -1,0 +1,170 @@
+[
+  {
+    "type": "photo",
+    "src": "assets/polaroids/photo_01.jpg",
+    "caption": "Random",
+    "source_name": "PXL_20240807_163910819.jpg"
+  },
+  {
+    "type": "photo",
+    "src": "assets/polaroids/photo_02.jpg",
+    "caption": "Random",
+    "source_name": "PXL_20241013_104213837.jpg"
+  },
+  {
+    "type": "photo",
+    "src": "assets/polaroids/photo_03.jpg",
+    "caption": "Random",
+    "source_name": "PXL_20241024_043525686.jpg"
+  },
+  {
+    "type": "photo",
+    "src": "assets/polaroids/photo_04.jpg",
+    "caption": "Random",
+    "source_name": "PXL_20241026_032331416.jpg"
+  },
+  {
+    "type": "photo",
+    "src": "assets/polaroids/photo_05.jpg",
+    "caption": "Random",
+    "source_name": "PXL_20241108_071853113.jpg"
+  },
+  {
+    "type": "photo",
+    "src": "assets/polaroids/photo_06.jpg",
+    "caption": "Random",
+    "source_name": "nepal 2026.jpeg"
+  },
+  {
+    "type": "photo",
+    "src": "assets/polaroids/photo_07.jpg",
+    "caption": "then&now",
+    "source_name": "first-photo.JPG"
+  },
+  {
+    "type": "photo",
+    "src": "assets/polaroids/photo_08.jpg",
+    "caption": "then&now",
+    "source_name": "now.HEIC"
+  },
+  {
+    "type": "video",
+    "src": "assets/polaroids/clip_09.mp4",
+    "caption": "birthday 2023",
+    "source_name": "20231013_111840.mp4"
+  },
+  {
+    "type": "photo",
+    "src": "assets/polaroids/photo_10.jpg",
+    "caption": "birthday 2023",
+    "source_name": "20231013_111855.jpg"
+  },
+  {
+    "type": "photo",
+    "src": "assets/polaroids/photo_11.jpg",
+    "caption": "birthday 2023",
+    "source_name": "20231013_111856.jpg"
+  },
+  {
+    "type": "photo",
+    "src": "assets/polaroids/photo_12.jpg",
+    "caption": "birthday 2023",
+    "source_name": "20231013_111859.jpg"
+  },
+  {
+    "type": "photo",
+    "src": "assets/polaroids/photo_13.jpg",
+    "caption": "luna ko aama",
+    "source_name": "PXL_20241127_024715726.jpg"
+  },
+  {
+    "type": "photo",
+    "src": "assets/polaroids/photo_14.jpg",
+    "caption": "luna ko aama",
+    "source_name": "PXL_20241127_024724084.PORTRAIT.jpg"
+  },
+  {
+    "type": "photo",
+    "src": "assets/polaroids/photo_15.jpg",
+    "caption": "luna ko aama",
+    "source_name": "PXL_20241127_024727452.PORTRAIT.jpg"
+  },
+  {
+    "type": "photo",
+    "src": "assets/polaroids/photo_16.jpg",
+    "caption": "luna ko aama",
+    "source_name": "PXL_20241127_024730813.PORTRAIT.jpg"
+  },
+  {
+    "type": "photo",
+    "src": "assets/polaroids/photo_17.jpg",
+    "caption": "random",
+    "source_name": "PXL_20241122_115500429.jpg"
+  },
+  {
+    "type": "photo",
+    "src": "assets/polaroids/photo_18.jpg",
+    "caption": "random",
+    "source_name": "PXL_20241122_115505163.jpg"
+  },
+  {
+    "type": "video",
+    "src": "assets/polaroids/clip_19.mp4",
+    "caption": "birthday 2024",
+    "source_name": "PXL_20241013_104359466.LS.mp4"
+  },
+  {
+    "type": "photo",
+    "src": "assets/polaroids/photo_20.jpg",
+    "caption": "birthday 2024",
+    "source_name": "PXL_20241013_104403787.jpg"
+  },
+  {
+    "type": "photo",
+    "src": "assets/polaroids/photo_21.jpg",
+    "caption": "birthday 2024",
+    "source_name": "PXL_20241013_104406070.jpg"
+  },
+  {
+    "type": "photo",
+    "src": "assets/polaroids/photo_22.jpg",
+    "caption": "birthday 2024",
+    "source_name": "PXL_20241013_104407693.jpg"
+  },
+  {
+    "type": "photo",
+    "src": "assets/polaroids/photo_23.jpg",
+    "caption": "zuluk 2024",
+    "source_name": "PXL_20241117_015442530.jpg"
+  },
+  {
+    "type": "video",
+    "src": "assets/polaroids/clip_24.mp4",
+    "caption": "zuluk 2024",
+    "source_name": "PXL_20241117_073611324.TS.mp4"
+  },
+  {
+    "type": "photo",
+    "src": "assets/polaroids/photo_25.jpg",
+    "caption": "zuluk 2024",
+    "source_name": "PXL_20241117_073631006.jpg"
+  },
+  {
+    "type": "photo",
+    "src": "assets/polaroids/photo_26.jpg",
+    "caption": "dasai together",
+    "source_name": "PXL_20241012_051428092.jpg"
+  },
+  {
+    "type": "photo",
+    "src": "assets/polaroids/photo_27.jpg",
+    "caption": "dasai together",
+    "source_name": "PXL_20241012_051841711.jpg"
+  },
+  {
+    "type": "photo",
+    "src": "assets/polaroids/photo_28.jpg",
+    "caption": "dasai together",
+    "source_name": "PXL_20241012_054940125.jpg"
+  }
+]

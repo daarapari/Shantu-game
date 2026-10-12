@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Estai · Memory Collectibles Preview</title>
+<style>
+:root{--ink:#382e2b;--paper:#fff8ec;--rose:#dca39a;--gold:#edc873;--bg:#d8d2c7}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,sans-serif;display:grid;place-items:center;padding:22px}
+main{width:min(760px,100%)}h1{font-size:clamp(24px,5vw,38px);margin:0 0 6px}p{margin:0;color:#70625b}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:25px}
+button.collectible{background:var(--paper);border:2px solid #57443b;border-radius:20px;padding:18px;min-height:210px;color:inherit;cursor:pointer;box-shadow:0 5px 0 #57443b;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px}
+button.collectible img{width:118px;height:118px;object-fit:contain}button.collectible strong{font-size:16px}button.collectible:active{transform:translateY(3px);box-shadow:0 2px 0 #57443b}
+#viewer{display:none;position:fixed;inset:0;background:#211d1beF;z-index:3;padding:18px;align-items:center;justify-content:center}
+.panel{position:relative;width:min(460px,100%);max-height:92vh;overflow:auto;background:var(--paper);border:3px solid var(--ink);border-radius:20px;padding:18px;text-align:center;box-shadow:0 8px 0 #110f0e}
+.close{position:absolute;right:10px;top:8px;border:0;background:transparent;font-size:27px;cursor:pointer;color:var(--ink)}.eyebrow{text-transform:uppercase;letter-spacing:.15em;font-size:11px;color:#86746a;margin:5px 0 10px}
+.media-wrap{display:flex;align-items:center;justify-content:center;min-height:280px;margin:8px auto 12px}
+.polaroid{background:#fffaf0;padding:10px 10px 35px;border:1px solid #ded3c2;box-shadow:0 5px 12px #4b3c3029;transform:rotate(-1.5deg);width:min(320px,86%);position:relative}
+.polaroid img,.polaroid video{width:100%;height:300px;object-fit:contain;background:#eee6da;display:block}.polaroid .caption{position:absolute;bottom:8px;left:5px;right:5px;font-family:"Comic Sans MS",cursive;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.notification-card{background:#fff;border:1px solid #e1d5c8;border-radius:16px;padding:9px;box-shadow:0 4px 12px #4b3c3020;display:flex;gap:10px;align-items:center;text-align:left;width:100%;margin-bottom:12px}
+.notification-card img,.notification-card video{width:90px;height:100px;object-fit:cover;border-radius:9px;background:#eee}.notification-card strong{display:block;font-size:15px}.notification-card small{color:#8a7b72}
+.controls{display:flex;gap:10px;justify-content:center;margin-top:14px}.controls button{border:2px solid var(--ink);border-radius:999px;padding:10px 17px;background:#e6c46e;font-weight:700;cursor:pointer}.controls .secondary{background:transparent}
+#reward{font-weight:800;font-size:21px;color:#a84d43;margin-top:10px;display:none}
+@media(max-width:480px){.cards{gap:10px}.cards button{padding:10px;min-height:175px}.cards img{width:95px!important;height:95px!important}.media-wrap{min-height:230px}.polaroid img,.polaroid video{height:245px}}
+</style></head><body><main>
+<h1>Memory collectibles</h1><p>Tap either icon to preview its memory sequence.</p>
+<div class="cards">
+<button class="collectible" id="photoBtn"><img src="assets/icons/photo_polaroid.svg"><strong>Our Photos</strong><span>Polaroid memories</span></button>
+<button class="collectible" id="notifBtn"><img src="assets/icons/phone_notification.svg"><strong>Babyla sent you something</strong><span>Random photos & short videos</span></button>
+</div></main>
+<div id="viewer"><section class="panel"><button class="close" id="close" aria-label="Close">×</button><div class="eyebrow" id="eyebrow">A little memory</div><h2 id="heading">Our Photos</h2><div class="media-wrap" id="media"></div><div id="date"></div><div id="reward">+20 Memory</div><div class="controls"><button class="secondary" id="skip">Skip</button><button id="next">Next</button></div></section></div>
+<script>
+let pol=[],notif=[],sequence=[],index=0,mode="photo",timer=null;
+const $=id=>document.getElementById(id);
+async function init(){[pol,notif]=await Promise.all([fetch("assets/polaroid_sequence.json").then(r=>r.json()),fetch("assets/notification_sequence.json").then(r=>r.json())]);}
+function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
+function open(modeName){mode=modeName;index=0;sequence=shuffle(mode==="photo"?pol:notif).slice(0,mode==="photo"?4:3);$("viewer").style.display="flex";$("reward").style.display="none";$("next").textContent="Next";show();}
+function show(){clearTimeout(timer);const item=sequence[index];$("media").innerHTML="";$("date").textContent="";$("eyebrow").textContent=mode==="photo"?"A photo from your camera roll":"A notification from Babyla";$("heading").textContent=mode==="photo"?"Our Photos":"She sent you this";
+const wrap=document.createElement("div");wrap.className=mode==="photo"?"polaroid":"notification-card";
+let el;if(item.type==="video"){el=document.createElement("video");el.src=item.src;el.controls=true;el.playsInline=true;el.autoplay=true;el.muted=true;}else{el=document.createElement("img");el.src=item.src;el.alt=item.caption||"Memory";}
+if(mode==="photo"){wrap.appendChild(el);let cap=document.createElement("div");cap.className="caption";cap.textContent=item.caption||"A little moment";wrap.appendChild(cap);}
+else{wrap.appendChild(el);let info=document.createElement("div");info.innerHTML="<strong>Babyla</strong><small>"+(item.type==="video"?"sent you a video":"sent you a photo")+(item.date?" · "+item.date:"")+"</small>";wrap.appendChild(info);}
+$("media").appendChild(wrap);if(mode==="photo"&&item.date)$("date").textContent=item.date;
+$("next").textContent=index===sequence.length-1?"Finish":"Next";
+if(item.type==="video"){el.addEventListener("ended",()=>advance(true),{once:true});timer=setTimeout(()=>advance(true),3800);}else{timer=setTimeout(()=>advance(true),mode==="photo"?1900:2100);}
+}
+function advance(auto=false){clearTimeout(timer);if(index<sequence.length-1){index++;show();}else{$("media").innerHTML="";$("date").textContent="";$("reward").style.display="block";$("heading").textContent="Memory saved";$("eyebrow").textContent="";$("next").textContent="Close";}}
+$("photoBtn").onclick=()=>open("photo");$("notifBtn").onclick=()=>open("notif");$("next").onclick=()=>{if($("reward").style.display==="block")close();else advance();};$("skip").onclick=()=>advance();function close(){clearTimeout(timer);$("viewer").style.display="none";$("media").innerHTML="";} $("close").onclick=close;$("viewer").addEventListener("click",e=>{if(e.target===$("viewer"))close()});init();
+</script></body></html>

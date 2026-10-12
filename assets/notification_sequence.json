@@ -1,0 +1,44 @@
+[
+  {
+    "type": "photo",
+    "src": "assets/notifications/sent_01.jpg",
+    "caption": "Photo from Babyla",
+    "date": "2026-09-16",
+    "source_name": "WhatsApp Image 2026-09-16 at 09.40.56.jpeg"
+  },
+  {
+    "type": "photo",
+    "src": "assets/notifications/sent_02.jpg",
+    "caption": "Photo from Babyla",
+    "date": "2026-09-20",
+    "source_name": "WhatsApp Image 2026-09-20 at 13.02.50.jpeg"
+  },
+  {
+    "type": "photo",
+    "src": "assets/notifications/sent_03.jpg",
+    "caption": "Photo from Babyla",
+    "date": "2026-09-01",
+    "source_name": "WhatsApp Image 2026-09-01 at 18.15.15.jpeg"
+  },
+  {
+    "type": "photo",
+    "src": "assets/notifications/sent_04.jpg",
+    "caption": "Photo from Babyla",
+    "date": "2026-09-15",
+    "source_name": "WhatsApp Image 2026-09-15 at 18.31.29.jpeg"
+  },
+  {
+    "type": "photo",
+    "src": "assets/notifications/sent_05.jpg",
+    "caption": "Photo from Babyla",
+    "date": "2026-09-15",
+    "source_name": "WhatsApp Image 2026-09-15 at 18.31.43.jpeg"
+  },
+  {
+    "type": "video",
+    "src": "assets/notifications/video_06.mp4",
+    "caption": "Video from Babyla",
+    "date": "2026-10-05",
+    "source_name": "WhatsApp Video 2026-10-05 at 08.59.44.mp4"
+  }
+]
